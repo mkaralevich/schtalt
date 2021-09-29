@@ -35,20 +35,20 @@ const pairs = [
 const base = pairs.map((pair) => {
 	return {
 		key: pair[0],
-		value: (val) => setProperty(pair[1], val),
+		value: (val: any) => setProperty(pair[1], val),
 	};
 });
 
 const flexes = {
 	key: "flexes",
-	value: (val) => setFlexGroup(val),
+	value: (val: any) => setFlexGroup(val),
 };
 
 const size = () => {
 	return [
 		{
 			key: "s",
-			value: (val) => {
+			value: (val: any) => {
 				return {
 					...setProperty("width", val),
 					...setProperty("height", val),
@@ -57,7 +57,7 @@ const size = () => {
 		},
 		{
 			key: "mins",
-			value: (val) => {
+			value: (val: any) => {
 				return {
 					...setProperty("minWidth", val),
 					...setProperty("minHeight", val),
@@ -66,7 +66,7 @@ const size = () => {
 		},
 		{
 			key: "maxs",
-			value: (val) => {
+			value: (val: any) => {
 				return {
 					...setProperty("maxWidth", val),
 					...setProperty("maxHeight", val),
@@ -76,11 +76,11 @@ const size = () => {
 	];
 };
 
-const spacings = (prop) => {
+const spacings = (prop: string) => {
 	return [
 		{
 			key: `${prop[0]}y`,
-			value: (val) => {
+			value: (val: any) => {
 				return {
 					...setProperty(`${prop}Top`, val),
 					...setProperty(`${prop}Bottom`, val),
@@ -89,7 +89,7 @@ const spacings = (prop) => {
 		},
 		{
 			key: `${prop[0]}x`,
-			value: (val) => {
+			value: (val: any) => {
 				return {
 					...setProperty(`${prop}Left`, val),
 					...setProperty(`${prop}Right`, val),

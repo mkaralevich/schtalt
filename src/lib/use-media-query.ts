@@ -4,7 +4,7 @@ import { breakpoints } from "../components/sys/tokens";
 
 const mq = createMediaQueries(breakpoints);
 
-export const useMediaQuery = (query) => {
+export const useMediaQuery = (query: string) => {
 	const [match, setMatch] = useState(false);
 
 	useEffect(() => {

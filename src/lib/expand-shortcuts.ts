@@ -18,18 +18,18 @@ const mq = createMediaQueries(breakpoints);
 	}
 ***/
 
-export const expandInlineShortcuts = (obj) => {
+export const expandInlineShortcuts = (obj: object | null): {} | null => {
 	return expandPropertyShortcuts(expandMediaShortcuts(obj));
 };
 
 /* Expand shortcuts */
-export const expandPropertyShortcuts = (obj) => {
+export const expandPropertyShortcuts = (obj: {}) => {
 	if (!obj) return null;
 
 	const asArray = Object.entries(obj);
-	let acc = {};
+	let acc: {} = {};
 
-	asArray.map((prop) => {
+	asArray.map((prop: {}) => {
 		const key = prop[0];
 		const value = prop[1];
 		// find matched shortcuts

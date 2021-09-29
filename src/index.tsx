@@ -1,4 +1,4 @@
-// export * from "./components/primitives";
+export * from "./components/primitives";
 
 interface Props {
 	(a: number, b: number): number;

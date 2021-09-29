@@ -1,5 +1,5 @@
 /* Flex shortcuts */
-export const setFlexGroup = (flexes) => {
+export const setFlexGroup = (flexes: string): {} | null => {
 	if (!flexes) return null;
 
 	const keys = {
@@ -15,7 +15,7 @@ export const setFlexGroup = (flexes) => {
 		},
 	};
 
-	const setFlexes = (arr) => {
+	const setFlexes = (arr: string) => {
 		return {
 			flexDirection: keys.dir[arr[0]],
 			justifyContent: keys.align[arr[1]],
