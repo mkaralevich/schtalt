@@ -2,10 +2,17 @@ import React from "react";
 import { setFlexGroup } from "../../lib";
 import { Box } from "./box";
 
-export const Flex = React.forwardRef(
-	({ flexes, gap = 0, sc, __ref, ...props }, ref) => (
+type Props = {
+	flexes?: string;
+	gap?: number;
+	sc?: {};
+	__ref?: HTMLElement;
+};
+
+export const Flex = React.forwardRef<HTMLElement, Props>(
+	({ flexes = "rss", gap = 0, sc, ...props }, ref) => (
 		<Box
-			__ref={__ref}
+			__ref={ref}
 			sc={{
 				display: "flex",
 				gap: gap,

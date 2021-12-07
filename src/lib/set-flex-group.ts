@@ -1,5 +1,5 @@
 /* Flex shortcuts */
-export const setFlexGroup = (flexes: string): {} | null => {
+export const setFlexGroup = (flexes: string | null | undefined): {} | null => {
 	if (!flexes) return null;
 
 	const keys = {
