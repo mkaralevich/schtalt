@@ -5,8 +5,8 @@ type CSS = number | string | null;
 
 type Props = {
 	as?: any;
-	css?: {};
-	sc?: {};
+	css?: {} | null;
+	sc?: {} | null;
 	bg?: CSS;
 	fg?: CSS;
 	w?: CSS;

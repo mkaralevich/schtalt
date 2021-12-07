@@ -19,7 +19,8 @@ const mq = createMediaQueries(breakpoints);
 ***/
 
 export const expandInlineShortcuts = (obj: {} | null): {} | null => {
-	return expandPropertyShortcuts(expandMediaShortcuts(obj));
+	if (!obj) return null;
+	else return expandPropertyShortcuts(expandMediaShortcuts(obj));
 };
 
 /* Expand shortcuts */
