@@ -18,12 +18,12 @@ const mq = createMediaQueries(breakpoints);
 	}
 ***/
 
-export const expandInlineShortcuts = (obj: object | null): {} | null => {
+export const expandInlineShortcuts = (obj: {} | null): {} | null => {
 	return expandPropertyShortcuts(expandMediaShortcuts(obj));
 };
 
 /* Expand shortcuts */
-export const expandPropertyShortcuts = (obj: {}) => {
+export const expandPropertyShortcuts = (obj: {} | null) => {
 	if (!obj) return null;
 
 	const asArray = Object.entries(obj);
@@ -52,13 +52,13 @@ export const expandPropertyShortcuts = (obj: {}) => {
 };
 
 /* Expand media query shortcuts */
-const expandMediaShortcuts = (props) => {
+const expandMediaShortcuts = (props: {} | null): {} | null => {
 	if (!props) return null;
 	const { prefix, bps } = mq;
 
 	const receivedMedia = Object.entries(props)
 		.slice(0)
-		.filter((key) => isMedia(key, prefix))
+		.filter(([key, _value]) => isMedia(key, prefix))
 		.map((obj) => {
 			const key = bps[obj[0]];
 			const value = { ...[obj[1]] };
@@ -68,7 +68,7 @@ const expandMediaShortcuts = (props) => {
 	const receivedProps = Object.entries(props)
 		.slice(0)
 		.filter((obj) => obj)
-		.filter((key) => !isMedia(key, prefix))
+		.filter(([key, _value]) => !isMedia(key, prefix))
 		.map((arr) => {
 			const key = arr[0];
 			const value = arr[1];
