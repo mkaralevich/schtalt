@@ -18,13 +18,15 @@ const mq = createMediaQueries(breakpoints);
 	}
 ***/
 
-export const expandInlineShortcuts = (obj: {} | null): {} | null => {
+export const expandInlineShortcuts = (
+	obj: {} | null | undefined
+): {} | null => {
 	if (!obj) return null;
 	else return expandPropertyShortcuts(expandMediaShortcuts(obj));
 };
 
 /* Expand shortcuts */
-export const expandPropertyShortcuts = (obj: {} | null) => {
+export const expandPropertyShortcuts = (obj: {} | null | undefined) => {
 	if (!obj) return null;
 
 	const asArray = Object.entries(obj);

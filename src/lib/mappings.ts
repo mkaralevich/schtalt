@@ -35,20 +35,20 @@ const pairs = [
 const base = pairs.map((pair) => {
 	return {
 		key: pair[0],
-		value: (val: any) => setProperty(pair[1], val),
+		value: (val: number | string) => setProperty(pair[1], val),
 	};
 });
 
 const flexes = {
 	key: "flexes",
-	value: (val: any) => setFlexGroup(val),
+	value: (val: string) => setFlexGroup(val),
 };
 
 const size = () => {
 	return [
 		{
 			key: "s",
-			value: (val: any) => {
+			value: (val: number | string) => {
 				return {
 					...setProperty("width", val),
 					...setProperty("height", val),
@@ -57,7 +57,7 @@ const size = () => {
 		},
 		{
 			key: "mins",
-			value: (val: any) => {
+			value: (val: number | string) => {
 				return {
 					...setProperty("minWidth", val),
 					...setProperty("minHeight", val),
@@ -66,7 +66,7 @@ const size = () => {
 		},
 		{
 			key: "maxs",
-			value: (val: any) => {
+			value: (val: number | string) => {
 				return {
 					...setProperty("maxWidth", val),
 					...setProperty("maxHeight", val),

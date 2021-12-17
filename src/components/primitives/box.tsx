@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { expandInlineShortcuts, expandPropertyShortcuts } from "../../lib";
 
-type CSS = number | string | null;
+type CSS = number | string | undefined;
 
 type Props = {
 	as?: any;
