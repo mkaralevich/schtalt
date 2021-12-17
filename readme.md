@@ -10,6 +10,8 @@
 - ✓ Responsive
 - ✓ CSS variables
 
+### Example
+
 ```jsx
 import { Flex, Text } from "../components/primitives";
 import { motion } from "framer-motion";
@@ -25,10 +27,10 @@ const Item = ({ children }) => {
       flexes="rbc"
       w="100%"
       br={8}
-      // Define CSS variable inside `tokens` file
+      // Define CSS variables inside `tokens` file
       // Use CSS variables anywhere using `--` prefix
       bg="--c-white-900"
-      // shortcut and theme-aware CSS
+      // CSS object also supports utilities and quick access to CSS variables
       sc={{
         py: 24,
         px: 16,
@@ -70,24 +72,21 @@ export default function App() {
 
 Setup with `yarn && yarn dev`.
 
----
 
 ### Known issues
 
 - CSS variables aren't picked up from the middle of the string, e.g. `1px solid --c-black-300`
 - Parts like `mappings` and `tokens` aren't properly separated from the components
-- `emotion` doesn't generate component names inside `className` since there's only one `css` definition on `Box`. To fix, user has to add empty `css={{}}` on a `Box`-based component
-- This is an experiment, therefore no proper testing was done
+- `emotion` doesn't generate component names inside `className` since there's only one `css` definition on `Box`. To fix, use `css={{}}` on a `Box`-based component
+- This is an experiment. Light architecture design and no tests
 
----
 
 ### Inspiration
 
 - [@exah/forest](https://github.com/exah/forest)
 - [theme-ui](https://github.com/system-ui/theme-ui)
 
----
 
 ### If you like idea
 
-I have recently discovered [https://github.com/modulz/stitches](`stitches`) that covers utilities, variants, theming, CSS variables, and more. It's a production-ready library focused on DX experience.
+I have recently discovered [`stitches`](https://github.com/modulz/stitches) that covers utilities, variants, theming, CSS variables, and more. It's a production-ready library focused on DX experience.
